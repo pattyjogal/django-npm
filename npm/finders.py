@@ -73,7 +73,7 @@ class NpmFinder(FileSystemFinder):
         self.cached_list = None
 
         self.match_patterns = flatten_patterns(getattr(settings, 'NPM_FILE_PATTERNS', None)) or ['*']
-        self.locations = [(self.destination, os.path.join(self.node_modules_path, 'node_modules'))]
+        self.locations = [(self.destination, os.path.join(str(self.node_modules_path), 'node_modules'))]
         self.storages = OrderedDict()
 
         filesystem_storage = FileSystemStorage(location=self.locations[0][1])
